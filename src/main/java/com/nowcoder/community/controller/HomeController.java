@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// 表示是一个控制器
+// 主页控制器
 @Controller
 public class HomeController {
     // 自动注入

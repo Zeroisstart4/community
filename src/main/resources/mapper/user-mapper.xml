@@ -21,7 +21,7 @@
         where id = #{id}
     </select>
 
-    <!-- 通过 username 查询用户 (主要大小写)-->
+    <!-- 通过 username 查询用户 (注意大小写)-->
     <!-- select selectFields 的字段 from user where username = 传入的 username 值-->
     <select id="selectByName" resultType="User">
         select <include refid="selectFields"></include>

@@ -10,7 +10,7 @@ public class User {
     private String username;
     // 用户密码
     private String password;
-
+    // 个人随机字符串(登录用)
     private String salt;
     // 用户邮箱
     private String email;
