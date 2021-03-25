@@ -4,6 +4,7 @@ import java.util.Date;
 
 /**
  * 封装帖子的内容
+ * @author zhou
  */
 public class DiscussPost {
 
