@@ -146,6 +146,7 @@ public class LoginController implements CommunityConstant {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(String username, String password, String code, boolean rememberme,
                         Model model, HttpSession session, HttpServletResponse response) {
+
         String kaptcha = (String) session.getAttribute("kaptcha");
         // 检查验证码
         if(StringUtils.isBlank(kaptcha) || StringUtils.isBlank(code) || !kaptcha.equalsIgnoreCase(code)) {
@@ -174,6 +175,8 @@ public class LoginController implements CommunityConstant {
             return "/site/login";
         }
     }
+
+
 
     @RequestMapping(path = "/logout", method = RequestMethod.GET)
     public String logout(@CookieValue("ticket") String ticket) {
