@@ -31,14 +31,13 @@ public class DiscussPostService {
 
     // 添加帖子
     public int addDiscussPost(DiscussPost post) {
-        if(post == null) {
+        if (post == null) {
             throw new IllegalArgumentException("参数不能为空!");
         }
 
         // 转义HTML标记
         post.setTitle(HtmlUtils.htmlEscape(post.getTitle()));
         post.setContent(HtmlUtils.htmlEscape(post.getContent()));
-
         // 过滤敏感词
         post.setTitle(sensitiveFilter.filter(post.getTitle()));
         post.setContent(sensitiveFilter.filter(post.getContent()));
@@ -49,5 +48,9 @@ public class DiscussPostService {
     // 通过 id 查询帖子
     public DiscussPost findDiscussPostById(int id) {
         return discussPostMapper.selectDiscussPostById(id);
+    }
+
+    public int updateCommentCount(int id, int commentCount) {
+        return discussPostMapper.updateCommentCount(id, commentCount);
     }
 }
