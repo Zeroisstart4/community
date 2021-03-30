@@ -4,7 +4,9 @@ import com.nowcoder.community.entity.DiscussPost;
 import com.nowcoder.community.entity.Page;
 import com.nowcoder.community.entity.User;
 import com.nowcoder.community.service.DiscussPostService;
+import com.nowcoder.community.service.LikeService;
 import com.nowcoder.community.service.UserService;
+import com.nowcoder.community.util.CommunityConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +20,7 @@ import java.util.Map;
 
 // 主页控制器
 @Controller
-public class HomeController {
+public class HomeController implements CommunityConstant{
     // 自动注入
     @Autowired
     private DiscussPostService discussPostService;
@@ -26,6 +28,9 @@ public class HomeController {
     // 自动注入
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private LikeService likeService;
 
     // 获取映射路径，请求方式
     @RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -56,6 +61,10 @@ public class HomeController {
                 User user = userService.findUserById(post.getUserId());
                 // 将 user 对象添加入 map
                 map.put("user", user);
+
+                long likeCount = likeService.findEntityLikeCount(ENTITY_TYPE_POST, post.getId());
+                map.put("likeCount", likeCount);
+
                 // 将 map 对象添加入 discussPosts 数组
                 discussPosts.add(map);
             }
