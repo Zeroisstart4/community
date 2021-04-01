@@ -1,5 +1,9 @@
 package com.nowcoder.community.util;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * @author zhou
  * @create 2021-3-29 22:04
@@ -7,6 +11,8 @@ package com.nowcoder.community.util;
 
 
 public class RedisKeyUtil {
+
+
 
     // 分隔符
     private static final String SPLIT = ":";
@@ -46,4 +52,6 @@ public class RedisKeyUtil {
 
         return PREFIX_FOLLOWER + SPLIT + entityType + SPLIT + entityId;
     }
+
+
 }
