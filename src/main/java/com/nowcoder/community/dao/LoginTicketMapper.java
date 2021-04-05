@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.*;
 
 
 @Mapper
+@Deprecated
 public interface LoginTicketMapper {
 
     // 插入凭证

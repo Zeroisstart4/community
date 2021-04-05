@@ -20,4 +20,7 @@ public interface CommentMapper {
 
     // 添加回复
     int insertComment(Comment comment);
+
+    // 查找评论
+    Comment selectCommentById(int id);
 }

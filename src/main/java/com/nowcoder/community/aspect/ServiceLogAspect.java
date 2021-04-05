@@ -40,8 +40,12 @@ public class ServiceLogAspect {
     // 在切点前执行
     @Before("pointcut()")
     public void before(JoinPoint joinPoint) {
+
         // 获取请求上下文持有器中的 request 域属性
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        if (attributes == null) {
+            return;
+        }
         // 获取 request 请求
         HttpServletRequest  request= attributes.getRequest();
         // 获取远程客户端 ip
