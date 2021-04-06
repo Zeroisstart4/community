@@ -1,30 +1,46 @@
 package com.nowcoder.community.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
+
 import java.util.Date;
 
 /**
  * 封装帖子的内容
  * @author zhou
  */
+
+@Document(indexName = "discusspost", type = "_doc", shards = 6, replicas = 3)
 public class DiscussPost {
 
     // 帖子 id
+    @Id
     private int id;
     // 用户 id
+    @Field(type = FieldType.Integer)
     private int userId;
     // 帖子标题
+    @Field(type = FieldType.Text, analyzer = "ik_max_word", searchAnalyzer = "ik_smart")
     private String title;
     // 帖子内容
+    @Field(type = FieldType.Text, analyzer = "ik_max_word", searchAnalyzer = "ik_smart")
     private String content;
     // 帖子类型，表示是否置顶
+    @Field(type = FieldType.Integer)
     private int type;
     // 帖子状态，用于表示是否被屏蔽
+    @Field(type = FieldType.Integer)
     private int status;
     // 帖子创建时间
+    @Field(type = FieldType.Date)
     private Date createTime;
     // 帖子的回帖数
+    @Field(type = FieldType.Integer)
     private int commentCount;
     // 帖子的点赞数
+    @Field(type = FieldType.Double)
     private double score;
 
     // 相应的 get/set 方法
