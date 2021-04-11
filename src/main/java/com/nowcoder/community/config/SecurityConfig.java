@@ -43,6 +43,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Comm
          * "/like"              点赞
          * "/follow"            关注
          * "/unfollow"          取消关注
+         *
+         * 为管理员添加删帖权限
+         * 为版主添加热贴、置顶权限
          */
         http.authorizeRequests()
                 .antMatchers(
@@ -60,6 +63,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Comm
                         AUTHORITY_USER,
                         AUTHORITY_ADMIN,
                         AUTHORITY_MODERATOR
+                )
+                .antMatchers(
+                        "/discuss/top",
+                        "/discuss/wonderful"
+                )
+                .hasAnyAuthority(
+                        AUTHORITY_MODERATOR
+                )
+                .antMatchers(
+                        "/discuss/delete"
+                )
+                .hasAnyAuthority(
+                        AUTHORITY_ADMIN
                 )
                 .anyRequest().permitAll()
                 .and().csrf().disable();
