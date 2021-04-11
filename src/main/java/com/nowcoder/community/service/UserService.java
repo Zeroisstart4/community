@@ -12,14 +12,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -32,16 +30,20 @@ public class UserService implements CommunityConstant {
     // 邮件客户端
     @Autowired
     private MailClient mailClient;
+
     // 模板引擎
     @Autowired
     private TemplateEngine templateEngine;
 
+    // redis 模板
     @Autowired
     private RedisTemplate redisTemplate;
 
+    // 主机域名
     @Value("${community.path.domain}")
     private String domain;
 
+    // 项目访问前缀
     @Value("${server.servlet.context-path}")
     private String contextPath;
 
@@ -281,4 +283,31 @@ public class UserService implements CommunityConstant {
         redisTemplate.delete(redisKey);
     }
 
+    /**
+     * 获取权限
+     * @param userId
+     * @return
+     */
+    public Collection<? extends GrantedAuthority> getAuthorities(int userId) {
+        // 通过用户 id 查询用户
+        User user = this.findUserById(userId);
+
+        // 用于储存用户权限
+        List<GrantedAuthority> list = new ArrayList<>();
+        list.add(new GrantedAuthority() {
+            // 通过用户类型授予相应的权限
+            @Override
+            public String getAuthority() {
+                switch (user.getType()) {
+                    case 1:
+                        return AUTHORITY_ADMIN;
+                    case 2:
+                        return AUTHORITY_MODERATOR;
+                    default:
+                        return AUTHORITY_USER;
+                }
+            }
+        });
+        return list;
+    }
 }

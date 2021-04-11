@@ -15,7 +15,7 @@ public interface UserMapper {
     // 通过 email 查用户
     User selectByEmail(String email);
 
-    // 通过 user 查用户
+    // 将 user 对象存入数据库
     int insertUser(User user);
 
     // 通过 id，status 更新用户状态
