@@ -20,8 +20,8 @@ public class DiscussPostService {
     private SensitiveFilter sensitiveFilter;
 
     // 查找回复帖 DiscussPost 对象,并封装到 list
-    public List<DiscussPost> findDiscussPosts(int userId, int offset, int limit) {
-        return discussPostMapper.selectDiscussPosts(userId, offset, limit);
+    public List<DiscussPost> findDiscussPosts(int userId, int offset, int limit, int orderMode) {
+        return discussPostMapper.selectDiscussPosts(userId, offset, limit, orderMode);
     }
 
     // 查找回复帖数
@@ -65,7 +65,10 @@ public class DiscussPostService {
         return discussPostMapper.updateStatus(id, status);
     }
 
-
+    // 更新帖子分数
+    public int updateScore(int id, double score) {
+        return discussPostMapper.updateScore(id, score);
+    }
 
 
 }
