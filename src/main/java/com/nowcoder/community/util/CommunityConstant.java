@@ -49,6 +49,11 @@ public interface CommunityConstant {
     String TOPIC_COMMENT = "comment";
 
     /**
+     * 主题: 分享
+     */
+    String TOPIC_SHARE = "share";
+
+    /**
      * 主题: 点赞
      */
     String TOPIC_LIKE = "like";
