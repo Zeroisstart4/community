@@ -1,5 +1,6 @@
 package com.nowcoder.community.config;
 
+import com.nowcoder.community.controller.intertceptor.DataInterceptor;
 import com.nowcoder.community.controller.intertceptor.LoginRequiredInterceptor;
 import com.nowcoder.community.controller.intertceptor.LoginTicketInterceptor;
 import com.nowcoder.community.controller.intertceptor.MessageInterceptor;
@@ -24,6 +25,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Autowired
     private MessageInterceptor messageInterceptor;
 
+    @Autowired
+    private DataInterceptor dataInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // 登录凭证过滤器
@@ -36,6 +40,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
         // 检验信息过滤器
         registry.addInterceptor(messageInterceptor)
+                .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
+
+        // Redis 高级数据拦截器
+        registry.addInterceptor(dataInterceptor)
                 .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
     }
 }
