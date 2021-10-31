@@ -51,7 +51,7 @@ public class UserService implements CommunityConstant {
     private LoginTicketMapper loginTicketMapper;*/
 
     /**
-     * 查询用户方法
+     * 通过 id 查用户
      * @param id 用户 id
      * @return
      */

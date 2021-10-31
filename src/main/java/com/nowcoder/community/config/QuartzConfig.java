@@ -13,6 +13,7 @@ import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
  * @create 2021-4-12 14:59
  */
 
+// 定时任务，用于刷新帖子分数
 // 配置 -> 数据库 -> 调用
 @Configuration
 public class QuartzConfig {

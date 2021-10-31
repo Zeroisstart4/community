@@ -10,6 +10,7 @@ import java.lang.annotation.Target;
  * @create 2021-3-26 14:26
  */
 
+// 作用与方法上，用于表示该方法需要进行登录检测
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface LoginRequired {

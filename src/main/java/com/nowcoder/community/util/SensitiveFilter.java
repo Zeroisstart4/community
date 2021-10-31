@@ -19,7 +19,6 @@ import java.util.Map;
  * @create 2021-3-26 14:51
  */
 
-
 @Component
 public class SensitiveFilter {
 
@@ -43,7 +42,7 @@ public class SensitiveFilter {
         ){
             String keyword = null;
             while ((keyword = reader.readLine()) != null) {
-                // 添加如前缀树
+                // 添加入前缀树
                 this.addKeyword(keyword);
             }
         } catch (Exception e) {
@@ -137,7 +136,7 @@ public class SensitiveFilter {
         return sb.toString();
     }
 
-    // 判断是否为敏感词
+    // 判断是否为符号
     private boolean isSymbol(Character c) {
         return !CharUtils.isAsciiAlphanumeric(c) && (c < 0x2E80 || c > 0x9FFF);
     }

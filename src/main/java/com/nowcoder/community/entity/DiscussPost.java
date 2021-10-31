@@ -39,7 +39,7 @@ public class DiscussPost {
     // 帖子的回帖数
     @Field(type = FieldType.Integer)
     private int commentCount;
-    // 帖子的点赞数
+    // 帖子的分数
     @Field(type = FieldType.Double)
     private double score;
 

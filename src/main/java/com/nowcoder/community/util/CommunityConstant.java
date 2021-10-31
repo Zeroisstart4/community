@@ -1,6 +1,6 @@
 package com.nowcoder.community.util;
 
-
+// 常量接口
 public interface CommunityConstant {
 
     /**

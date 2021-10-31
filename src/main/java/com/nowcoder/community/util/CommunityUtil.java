@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ * MD5 加密与 Json 转 String 工具类
+ */
 public class CommunityUtil {
 
     // 生成随机字符串

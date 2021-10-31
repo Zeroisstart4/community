@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class HostHolder {
+    // 使用 ThreadLocal 存储用户信息
     private ThreadLocal<User> users = new ThreadLocal<>();
 
     public void setUser(User user) {

@@ -8,13 +8,21 @@ import java.util.Date;
  */
 public class Comment {
 
+    // 评论 id
     private int id;
+    // 用户 id
     private int userId;
+    // 实体类型
     private int entityType;
+    // 实体 id
     private int entityId;
+    // 目标 id
     private int targetId;
+    // 评论内容
     private String content;
+    // 评论状态
     private int status;
+    // 评论时间
     private Date createTime;
 
     public int getId() {

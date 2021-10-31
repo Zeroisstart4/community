@@ -9,22 +9,29 @@ body {
 	height: 100%;
 }
 
+.btn-primary {
+	color: #fff;
+	background-color: #ff6a46;
+	border-color: #ff6a46;
+}
+
 .nk-container {
 	position: relative;
 	height: auto;
 	min-height: 100%;
 }
 
+
 .container {
 	width: 960px;
 	padding: 0;
+	border-radius: 20px;
 }
 
 header .navbar-brand {
-	/*background: url('http://static.nowcoder.com/images/res/logo/logo-v3.png') no-repeat;*/
-	background: url('https://raw.githubusercontent.com/Zeroisstart4/Zeroisstart4.github.io/master/docs/%E7%A4%BE%E5%8C%BA%E9%A1%B9%E7%9B%AE/img/logo.jpg') no-repeat;
-	background-size: 42px 42px;
-	width: 42px;
+	background: url('https://gitee.com/veal98/images/raw/master/img/greateCommunityLogo.png') no-repeat;
+	background-size: 147px 42px;
+	width: 147px;
 	height: 42px;
 	margin: 5px 15px 5px 0;
 }
@@ -34,11 +41,52 @@ header .navbar {
 	font-size: 16px;
 }
 
+.nav-link {
+	color: rgb(113, 119, 145) !important;
+}
+
+.nav-link:hover{
+	color: rgb(119, 84, 223) !important;
+}
+
+.dropdown-item {
+	color: rgb(119, 84, 223);
+}
+.text-secondary {
+	color: #6c757d !important;
+}
+
+.pb-3, .py-3 {
+	border-radius: 10px;
+	border: 1px solid #dee2e6;
+	padding: 20px;
+}
+
+.serach-btn {
+	color: #fff;
+	background: rgb(119, 84, 223);
+}
+
+.page-link {
+	color: rgb(119, 84, 223);
+}
+
+.page-item.active .page-link {
+	background-color: rgb(119, 84, 223);
+}
+
 header .badge {
 	position: absolute;
 	top: -3px;
-	left: 33px;
+	left: 60px;
 }
+
+.navbar-dark .navbar-toggler {
+	background: rgb(119, 84, 223);
+	opacity: 80%;
+}
+
+
 
 footer {
 	padding: 20px 0;
@@ -133,6 +181,9 @@ a:hover {
 
 .bg-gray {
 	background: #eff0f2;
+}
+.bg-light {
+	background: #fff !important;
 }
 
 .user-header {

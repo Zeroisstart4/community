@@ -21,6 +21,8 @@ import java.io.PrintWriter;
  * @author zhou
  * @create 2021-4-11 20:46
  */
+
+// 用户权限配置类
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter implements CommunityConstant {
 

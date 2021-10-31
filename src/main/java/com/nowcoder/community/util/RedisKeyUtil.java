@@ -5,15 +5,11 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Redis 工具类
+ * Redis 工具类，用于生成 redis 键名
  * @author zhou
  * @create 2021-3-29 22:04
  */
-
-
 public class RedisKeyUtil {
-
-
 
     // 分隔符
     private static final String SPLIT = ":";

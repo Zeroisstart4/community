@@ -19,7 +19,7 @@ import java.util.Date;
  * @create 2021-3-29 19:04
  */
 
-
+// 服务层切面，用于打印操作日志
 @Component
 @Aspect
 public class ServiceLogAspect {
@@ -43,11 +43,12 @@ public class ServiceLogAspect {
 
         // 获取请求上下文持有器中的 request 域属性
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        // 健壮性判断
         if (attributes == null) {
             return;
         }
         // 获取 request 请求
-        HttpServletRequest  request= attributes.getRequest();
+        HttpServletRequest request= attributes.getRequest();
         // 获取远程客户端 ip
         String ip = request.getRemoteHost();
         // 获取当前时间
